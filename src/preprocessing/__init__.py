@@ -1,1 +1,1 @@
-"""Reusable preprocessing pipelines (planned)."""
+"""Reusable preprocessing pipelines."""

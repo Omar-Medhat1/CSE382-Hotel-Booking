@@ -5,6 +5,7 @@
     "path": "data/raw/H2.csv",
     "url": "https://raw.githubusercontent.com/afaq-ahmad/Hotel-booking-demand-Case-Study/master/H2.csv",
     "expected_rows": 79330,
+    "sha256": "6796f5b9b2b9e7281662b29730fc2880f8e614107d0d14d09be2ede1a6e605a4",
     "columns": [
       "IsCanceled", "LeadTime", "ArrivalDateYear", "ArrivalDateMonth",
       "ArrivalDateWeekNumber", "ArrivalDateDayOfMonth", "StaysInWeekendNights",

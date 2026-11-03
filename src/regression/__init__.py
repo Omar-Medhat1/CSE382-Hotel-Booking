@@ -1,1 +1,1 @@
-"""ADR regression experiments (planned)."""
+"""ADR regression experiments."""

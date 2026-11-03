@@ -36,6 +36,8 @@ def validate_source(path, dataset_config):
     with path.open("rb") as stream:
         for chunk in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(chunk)
+    if dataset_config.get("sha256") and digest.hexdigest() != dataset_config["sha256"]:
+        raise ValueError("Source SHA-256 differs from the verified project snapshot. Inspect the mirror before changing the expected checksum.")
     return {
         "path": str(path.resolve()),
         "rows": rows,

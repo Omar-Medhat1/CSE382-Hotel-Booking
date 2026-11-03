@@ -1,1 +1,1 @@
-"""Unsupervised booking segmentation (planned)."""
+"""Unsupervised booking segmentation."""

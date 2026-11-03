@@ -1,1 +1,1 @@
-"""Task-specific feature policies (planned)."""
+"""Task-specific feature policies."""

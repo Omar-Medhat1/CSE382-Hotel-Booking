@@ -1,0 +1,20 @@
+{
+  "LeadTime": 30,
+  "ArrivalDateYear": 2017,
+  "ArrivalDateMonth": "April",
+  "ArrivalDateDayOfMonth": 15,
+  "StaysInWeekendNights": 2,
+  "StaysInWeekNights": 1,
+  "Adults": 2,
+  "Children": 0,
+  "Babies": 0,
+  "IsRepeatedGuest": 0,
+  "Meal": "BB",
+  "Country": "PRT",
+  "MarketSegment": "Online TA",
+  "DistributionChannel": "TA/TO",
+  "ReservedRoomType": "A",
+  "Agent": "9",
+  "Company": "NULL",
+  "CustomerType": "Transient"
+}
