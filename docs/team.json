@@ -4,11 +4,11 @@
   "contributions_status": "pending",
   "work_allocation_status": "assigned",
   "members": [
-    {"name": "OMAR MEDHAT", "student_id": "23P0026", "github_username": "Omar-Medhat1", "responsibility": "Preprocessing, feature engineering, leakage audit; GitHub coordination", "contribution_status": "assigned_pending_work"},
-    {"name": "AHMED MEDHAT", "student_id": "230039", "github_username": null, "responsibility": "Dataset validation and EDA", "contribution_status": "assigned_pending_work"},
-    {"name": "AHMED ADEL", "student_id": "23P0046", "github_username": null, "responsibility": "ADR regression and regression evaluation", "contribution_status": "assigned_pending_work"},
-    {"name": "MOHAMED HASSAN", "student_id": "23P0042", "github_username": null, "responsibility": "Cancellation classification and evaluation", "contribution_status": "assigned_pending_work"},
-    {"name": "AHMED MOKHTAR", "student_id": "23P0081", "github_username": null, "responsibility": "Clustering, profiles and PCA visualization", "contribution_status": "assigned_pending_work"},
-    {"name": "HALA ELTAWEEL", "student_id": "23P0232", "github_username": null, "responsibility": "Report, reproducibility and submission packaging", "contribution_status": "assigned_pending_work"}
+    {"name": "OMAR MEDHAT", "student_id": "23P0026", "github_username": "Omar-Medhat1", "responsibility": "Preprocessing, temporal splits and leakage prevention", "contribution_status": "assigned_pending_work"},
+    {"name": "AHMED MEDHAT", "student_id": "230039", "github_username": null, "responsibility": "Data quality, cleaning rules, EDA and feature diagnostics", "contribution_status": "assigned_pending_work"},
+    {"name": "AHMED ADEL", "student_id": "23P0046", "github_username": null, "responsibility": "Regression workflow, error analysis and inference checks", "contribution_status": "assigned_pending_work"},
+    {"name": "MOHAMED HASSAN", "student_id": "23P0042", "github_username": null, "responsibility": "Classification workflow, imbalance analysis and inference checks", "contribution_status": "assigned_pending_work"},
+    {"name": "AHMED MOKHTAR", "student_id": "23P0081", "github_username": null, "responsibility": "Clustering workflow, PCA analysis and segment interpretation", "contribution_status": "assigned_pending_work"},
+    {"name": "HALA ELTAWEEL", "student_id": "23P0232", "github_username": null, "responsibility": "CLI integration, system checks and reproducible submission", "contribution_status": "assigned_pending_work"}
   ]
 }

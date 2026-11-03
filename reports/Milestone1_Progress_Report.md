@@ -10,12 +10,12 @@ Technical progress report for H2 (City Hotel). This version contains executed ex
 
 | Student name | Student ID | Assigned responsibility |
 | --- | --- | --- |
-| OMAR MEDHAT | 23P0026 | Preprocessing, feature engineering, leakage audit; GitHub coordination |
-| AHMED MEDHAT | 230039 | Dataset validation and EDA |
-| AHMED ADEL | 23P0046 | ADR regression and regression evaluation |
-| MOHAMED HASSAN | 23P0042 | Cancellation classification and evaluation |
-| AHMED MOKHTAR | 23P0081 | Clustering, profiles and PCA visualization |
-| HALA ELTAWEEL | 23P0232 | Report, reproducibility and submission packaging |
+| OMAR MEDHAT | 23P0026 | Preprocessing, temporal splits and leakage prevention |
+| AHMED MEDHAT | 230039 | Data quality, cleaning rules, EDA and feature diagnostics |
+| AHMED ADEL | 23P0046 | Regression workflow, error analysis and inference checks |
+| MOHAMED HASSAN | 23P0042 | Classification workflow, imbalance analysis and inference checks |
+| AHMED MOKHTAR | 23P0081 | Clustering workflow, PCA analysis and segment interpretation |
+| HALA ELTAWEEL | 23P0232 | CLI integration, system checks and reproducible submission |
 
 | Area | Measured result / status |
 | --- | --- |
@@ -236,7 +236,7 @@ Complete supervised PCA comparisons for at least two models and an original/PCA/
 
 ### Team and contribution record
 
-Assigned roles appear on the cover: Omar Medhat owns preprocessing, feature engineering, leakage prevention and GitHub coordination; Ahmed Medhat data validation and EDA; Ahmed Adel regression; Mohamed Hassan classification; Ahmed Mokhtar clustering; Hala Eltaweel the report and reproducibility. Concrete tasks, files, commands, and completion criteria are in docs/contributions.md. These are assignments; completed contributions must be supported by actual work and evidence from each member's account. All members must understand the complete workflow.
+The six work packages combine technical ownership, analysis, verification, and a report section. Omar Medhat owns preprocessing/splits/leakage; Ahmed Medhat data quality/cleaning/EDA; Ahmed Adel the regression workflow and error analysis; Mohamed Hassan the classification workflow and imbalance analysis; Ahmed Mokhtar clustering/PCA/interpretation; Hala Eltaweel CLI integration, system checks, report assembly and packaging. Each owner verifies their section; Hala integrates the sections. Concrete tasks and handoffs are in docs/contributions.md. These assignments require actual work and evidence from each member's account. All members must understand the complete workflow.
 
 The ZIP excludes raw downloaded data, fitted models/pipelines, virtual environments, and Git internals. Its README records the repository URL and submitted commit SHA. This remains a technical draft until other GitHub accounts and actual contribution records are completed.
 

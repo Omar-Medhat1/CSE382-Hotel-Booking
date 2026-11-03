@@ -117,14 +117,14 @@ Inputs use the original booking source names. The example is a synthetic active 
 
 | Name | Student ID | Assigned responsibility |
 | --- | --- | --- |
-| OMAR MEDHAT | 23P0026 | Preprocessing, feature engineering, leakage audit; GitHub coordination |
-| AHMED MEDHAT | 230039 | Dataset validation and EDA |
-| AHMED ADEL | 23P0046 | ADR regression and regression evaluation |
-| MOHAMED HASSAN | 23P0042 | Cancellation classification and evaluation |
-| AHMED MOKHTAR | 23P0081 | Clustering, profiles and PCA visualization |
-| HALA ELTAWEEL | 23P0232 | Report, reproducibility and submission packaging |
+| OMAR MEDHAT | 23P0026 | Preprocessing, temporal splits and leakage prevention |
+| AHMED MEDHAT | 230039 | Data quality, cleaning rules, EDA and feature diagnostics |
+| AHMED ADEL | 23P0046 | Regression workflow, error analysis and inference checks |
+| MOHAMED HASSAN | 23P0042 | Classification workflow, imbalance analysis and inference checks |
+| AHMED MOKHTAR | 23P0081 | Clustering workflow, PCA analysis and segment interpretation |
+| HALA ELTAWEEL | 23P0232 | CLI integration, system checks and reproducible submission |
 
-The confirmed team has six members; see `docs/team.md` and `docs/team.json`. [The work allocation](docs/contributions.md) provides concrete tasks, files, reproduction commands, and completion criteria for each member. Roles are assigned; completed contributions and other members' GitHub usernames remain pending. Each member must contribute through their own GitHub account and record actual work and verification evidence.
+The confirmed team has six members; see `docs/team.md` and `docs/team.json`. [The work allocation](docs/contributions.md) gives each member a complete work package with technical ownership, analysis, verification, and their own report section. Hala coordinates CLI/system integration and report assembly; each technical owner supplies and checks their section. Omar retains repository-owner access administration. Roles are assigned; completed contributions and other members' GitHub usernames remain pending. Each member must contribute through their own GitHub account and record actual work and verification evidence.
 
 ## Submission
 

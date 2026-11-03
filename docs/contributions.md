@@ -6,68 +6,99 @@ Status: responsibilities are assigned across six members. Record completed work 
 
 | Member | Student ID | Assigned area | Evidence to produce |
 | --- | --- | --- | --- |
-| OMAR MEDHAT | 23P0026 | Preprocessing, feature engineering, temporal splitting, leakage audit; GitHub coordination | Feature/pipeline review; split and leakage checks; justified corrections and integration |
-| AHMED MEDHAT | 230039 | Dataset validation and EDA | Source-check and EDA review; documented findings; links to actual changes |
-| AHMED ADEL | 23P0046 | ADR regression and evaluation | Reproduced Ridge/reference metrics; residual analysis; model limitations |
-| MOHAMED HASSAN | 23P0042 | Cancellation classification and evaluation | Reproduced classification metrics; confusion/ROC/PR interpretation; imbalance analysis |
-| AHMED MOKHTAR | 23P0081 | Clustering, profiles, PCA visualization | Reproduced cluster metrics and profiles; interpretation and geometry limitations |
-| HALA ELTAWEEL | 23P0232 | Report, reproducibility, submission packaging | Report checked against outputs; setup/inference/package checks; final draft review |
+| OMAR MEDHAT | 23P0026 | Preprocessing, temporal splits, leakage prevention | Reusable transformations; split/fit-isolation checks; feature and leakage report section |
+| AHMED MEDHAT | 230039 | Data quality, cleaning rules, EDA, feature diagnostics | Data-quality contract; verified EDA outputs; cleaning/EDA report section |
+| AHMED ADEL | 23P0046 | Complete regression workflow, error analysis, inference checks | Model/reference comparison; residual analysis; saved prediction checks; regression section |
+| MOHAMED HASSAN | 23P0042 | Complete classification workflow, imbalance analysis, inference checks | Metrics/curves; rare-positive analysis; probability/decision checks; classification section |
+| AHMED MOKHTAR | 23P0081 | Complete clustering workflow, PCA analysis, segment interpretation | Unsupervised representation; metrics/profiles/projection; clustering section |
+| HALA ELTAWEEL | 23P0232 | CLI integration, system checks, report assembly, reproducible submission | Working command flows; environment/reload/package checks; system/reproduction section |
+
+## Comparable work packages and handoffs
+
+Each member owns four deliverables: their technical component, evidence-backed analysis, relevant verification, and a report section/walkthrough. Workloads are comparable in scope; actual effort depends on the problems found and should be reviewed after the first handoff. Counting model constructor lines or commits is not a useful measure of effort.
+
+- Ahmed Medhat owns source parsing/normalization and the data-quality contract. Omar owns learned preprocessing, deterministic feature engineering, and split isolation. Agree on missingness/category meanings before changing either component.
+- Omar defines shared feature/split rules. Regression, classification, and clustering owners explain their own task-specific inputs and limitations and contribute to the audit.
+- Ahmed Adel and Mohamed Hassan own their respective metric functions and experiment branches. They supply task-specific prediction cases to Hala, who owns common CLI dispatch, input handling, and integration. Coordinate edits to shared files such as `src/experiments.py`, `src/evaluation/metrics.py`, and `src/inference.py`.
+- Ahmed Mokhtar owns the independent clustering representation, fitted clustering pipeline, evaluation, profiles, and PCA display. Supervised PCA/LDA comparisons remain planned Milestone 2 work.
+- Each technical owner writes and verifies their own report section. Hala assembles those sections, checks cross-section consistency, owns the system/reproduction section, and verifies the packaged project.
+- Hala coordinates technical integration and end-to-end checks. Omar retains repository-owner access administration, such as adding collaborators when usernames are supplied.
+- Verification must address actual risks or uncovered behavior. Reuse existing checks where appropriate; add meaningful tests when a real coverage gap or fix warrants them. Avoid cosmetic changes solely to create commits.
 
 ## Concrete tasks and completion criteria
 
-### AHMED MEDHAT - data and EDA
+### AHMED MEDHAT - data quality, cleaning and EDA
 
 - Review `src/data/loading.py`, `src/data/validation.py`, and `src/analysis/eda.py`.
 - Run `python main.py download`, `python main.py validate-data`, and `python main.py analyze` using the project environment.
 - Check the 79,330-by-31 schema, fingerprint, padded source strings, four unknown Children values, 24 unknown Country values, and Agent/Company not-applicable categories.
 - Review duplicate handling, unusual values, category cardinality, distributions, and training-only plots. Document findings and make any justified corrections.
-- Completion evidence: command results, an EDA explanation, and links to the member's actual changes or substantive review.
+- Own the source-data quality contract: required fields/types, allowed missing-value tokens, not-applicable IDs, date/domain checks, and the documented policy for unusual values. Coordinate with Omar so source normalization and fitted imputation stay consistent.
+- Check that malformed or incompatible source data is rejected clearly, and verify that descriptive conclusions match exported tables. Inspect relevant training feature associations and category concentration without examining final-test target performance.
+- Own the data-quality/cleaning/EDA report section, including figures, unusual-value decisions, and feature-distribution limitations; supply the checked section to Hala.
+- Completion evidence: verified parsing/quality behavior, EDA outputs with written interpretations, the owned report section, and links to actual changes or substantive review.
 
-### OMAR MEDHAT - preprocessing, leakage prevention and GitHub coordination
+### OMAR MEDHAT - preprocessing, temporal splitting and leakage prevention
 
 - Review `src/features/policy.py`, `src/preprocessing/pipelines.py`, `src/data/splitting.py`, and `docs/leakage-audit.md`.
 - Explain the day-before-arrival prediction point, active-booking risk set, label-availability purging, and all feature exclusions.
 - Check median/UNKNOWN imputation, categorical IDs, one-hot handling of unseen categories, scaling, and deterministic stay/calendar features.
 - Run `python -m unittest discover -s tests -v` and, after baselines exist, `python main.py verify`. Check training-only fitted statistics and zero cross-partition predictor-group overlap.
 - Document any timing assumptions or limitations and make evidence-backed corrections without consulting final-test performance.
-- Maintain repository setup instructions, add teammates as collaborators once their usernames are supplied, and coordinate integration of their actual changes.
-- Completion evidence: feature/pipeline audit, verified checks, and links to actual changes or substantive review.
+- Own the preprocessing/feature-engineering/leakage report section and obtain task-specific timing/input explanations from the three model owners.
+- Hand verified input schemas and split contracts to the model owners and Hala. Hala coordinates technical integration; Omar handles repository-owner collaborator access when usernames are supplied.
+- Completion evidence: reusable transforms, split/fit-isolation checks, the owned audit/report section, and links to actual changes or substantive review.
 
-### AHMED ADEL - regression
+### AHMED ADEL - complete regression workflow and diagnostics
 
 - Review `src/regression/baseline.py`, regression metrics in `src/evaluation/metrics.py`, and the regression branch of `src/experiments.py`.
 - Reproduce the baseline workflow with `python main.py baseline` and examine Ridge versus the training-mean reference in `results/tables/supervised_validation_metrics.csv`.
 - Explain MAE, MSE/RMSE, R-squared, alpha=1, scaling, categorical encoding, and the validation residual/prediction pattern.
 - Check saved regression inference with `python main.py predict --task regression --input examples/booking.json`.
 - Document important errors and negative-prediction limitations; propose regression models and a training-fold tuning plan for Milestone 2.
-- Completion evidence: regression result review, an explanation of errors/metrics, and links to actual changes or substantive review.
+- Own the regression fit/evaluate/save/load flow, the regression metric function, validation result export, and prediction/residual figure. Coordinate the regression experiment branch with Hala.
+- Investigate residual patterns using training/validation data: systematic over/underprediction, larger errors by rate range, zero-rate cases, and the effect of rare/unseen booking categories. Describe error patterns without presenting them as causal findings.
+- Verify saved-pipeline prediction consistency and task-relevant missing/unseen-input cases; supply regression examples and expected behavior to Hala for integration checks.
+- Own the regression report section with model assumptions, the reference comparison, diagnostic interpretation, limitations, and next experiments.
+- Completion evidence: reproduced fit/evaluation outputs, documented error analysis, inference checks, the owned report section, and links to actual changes or substantive review.
 
-### MOHAMED HASSAN - classification
+### MOHAMED HASSAN - complete classification workflow and imbalance analysis
 
 - Review `src/classification/baseline.py`, classification metrics in `src/evaluation/metrics.py`, and classification plots in `src/experiments.py`.
 - Reproduce the baseline workflow and verify the prior and logistic-regression results, positive prevalence, and confusion matrix.
 - Explain accuracy, precision, recall, F1, ROC-AUC, average precision, and why the 0.5 threshold catches only 1 of 170 validation positives.
 - Check saved classification inference with `python main.py predict --task classification --input examples/booking.json`.
 - Document the poor default-threshold recall. Plan class weighting, calibration, and threshold evaluation using training-fold predictions for Milestone 2.
-- Completion evidence: classification result review, imbalance/threshold explanation, and links to actual changes or substantive review.
+- Own the classification fit/evaluate/save/load flow, classification metric function, probability/decision outputs, validation result export, and confusion/ROC/precision-recall figures.
+- Verify that the positive class, probability column, threshold, and reported precision/recall agree. Explain false negatives and false positives and compare ranking quality with the prior reference rather than relying on accuracy.
+- Check saved-pipeline probability consistency and task-relevant input cases; supply classification examples and expected behavior to Hala for integration checks.
+- Own the classification report section, including the narrowed risk set, rare-positive difficulty, poor baseline decisions, and the training-fold plan for weighting/calibration/threshold selection.
+- Completion evidence: reproduced classification outputs, rare-positive diagnostic interpretation, inference checks, the owned report section, and links to actual changes or substantive review.
 
-### AHMED MOKHTAR - clustering
+### AHMED MOKHTAR - complete clustering workflow and interpretation
 
 - Review `src/clustering/baseline.py`, the clustering feature allowlist, and clustering analysis in `src/experiments.py`.
 - Reproduce the baseline workflow and inspect `clustering_metrics.csv`, `cluster_profiles.csv`, and the cluster/PCA figure.
 - Explain k=3 as an initial baseline, log transforms, scaling, one-hot categories, sampled silhouette, Davies-Bouldin, and the roughly 35% variance retained in the 2-D visualization.
 - Interpret each cluster using booking attributes. Investigate sensitivity to rare-count weighting as planned work; keep outcome labels out of clustering decisions.
 - Prepare the plan for optimized K-Means, hierarchical clustering, DBSCAN, and stability checks in Milestone 2.
-- Completion evidence: cluster-profile explanation, metric/projection limitations, and links to actual changes or substantive review.
+- Own clustering-specific input preparation, fit/save flow, assignment export, unsupervised metrics, descriptive profile tables, and PCA display. Agree shared feature-policy boundaries with Omar.
+- Check assignment coverage, profile counts, repeatability under the recorded seed, saved-pipeline assignment consistency, and the separation of clustering objects from supervised pipelines.
+- Explain log/scaling/one-hot distance effects and how the projection's discarded variance limits interpretation. Do not describe the exploratory k=3 baseline as an optimized final choice.
+- Own the clustering report section with representation justification, metric limitations, segment descriptions, and remaining parameter/stability experiments.
+- Completion evidence: reproduced assignments/profiles/metrics, verification of outcome isolation and artifacts, the owned report section, and links to actual changes or substantive review.
 
-### HALA ELTAWEEL - report and reproducibility
+### HALA ELTAWEEL - CLI integration, system verification and reproducible delivery
 
 - Review `src/reporting.py`, `README.md`, `scripts/package_submission.py`, and the report against the measured tables and figures.
+- Own common command routing in `main.py`, shared input handling in `src/inference.py`, and integrated verification in `src/verification.py`; coordinate task-specific prediction behavior with Ahmed Adel and Mohamed Hassan.
+- Verify complete command flows: download/validate, analyze, baseline, verify, report, and both predictions. Check meaningful failures such as missing artifacts, malformed booking input, and incompatible source data, without adding final-test scoring.
 - Follow the README setup/reproduction commands, check the six names and IDs, and verify that validation metrics are clearly separated from reserved test evaluation.
 - Run `python main.py report`, `python main.py verify`, and both example inference commands after baselines exist; inspect the generated PDF pages for layout and accuracy.
 - Check source references, limitations, remaining-work plan, and the contribution evidence supplied by the other members.
+- Collect each member's checked report section and assemble the document. Own the system/reproduction section, dependency/run instructions, output locations, command descriptions, and cross-section consistency.
 - After final changes are committed, run `python scripts/package_submission.py --output ../Milestone1_Draft.zip`; check the recorded SHA and exclusion of downloaded data, environments, and fitted models.
-- Completion evidence: report corrections, reproducibility/package review, and links to actual changes or substantive review.
+- Completion evidence: integrated CLI and inference checks, reproduced environment/workflow evidence, the system/reproduction section and assembled report, package verification, and links to actual changes or substantive review.
 
 ## How each member records actual work
 
