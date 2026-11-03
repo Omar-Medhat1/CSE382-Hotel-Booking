@@ -1,0 +1,2 @@
+# Initial setup and source validation use Python's standard library.
+# ML dependencies will be added with verified versions during implementation.

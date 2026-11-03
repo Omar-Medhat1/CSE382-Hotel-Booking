@@ -1,0 +1,19 @@
+{
+  "seed": 382,
+  "repository": "https://github.com/Omar-Medhat1/CSE382-Hotel-Booking",
+  "dataset": {
+    "path": "data/raw/H2.csv",
+    "url": "https://raw.githubusercontent.com/afaq-ahmad/Hotel-booking-demand-Case-Study/master/H2.csv",
+    "expected_rows": 79330,
+    "columns": [
+      "IsCanceled", "LeadTime", "ArrivalDateYear", "ArrivalDateMonth",
+      "ArrivalDateWeekNumber", "ArrivalDateDayOfMonth", "StaysInWeekendNights",
+      "StaysInWeekNights", "Adults", "Children", "Babies", "Meal", "Country",
+      "MarketSegment", "DistributionChannel", "IsRepeatedGuest",
+      "PreviousCancellations", "PreviousBookingsNotCanceled", "ReservedRoomType",
+      "AssignedRoomType", "BookingChanges", "DepositType", "Agent", "Company",
+      "DaysInWaitingList", "CustomerType", "ADR", "RequiredCarParkingSpaces",
+      "TotalOfSpecialRequests", "ReservationStatus", "ReservationStatusDate"
+    ]
+  }
+}
