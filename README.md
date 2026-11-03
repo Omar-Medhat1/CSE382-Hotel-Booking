@@ -117,8 +117,8 @@ Inputs use the original booking source names. The example is a synthetic active 
 
 | Name | Student ID | Assigned responsibility |
 | --- | --- | --- |
-| OMAR MEDHAT | 23P0026 | Dataset validation, EDA and GitHub coordination |
-| AHMED MEDHAT | 230039 | Preprocessing, feature engineering and leakage audit |
+| OMAR MEDHAT | 23P0026 | Preprocessing, feature engineering, leakage audit; GitHub coordination |
+| AHMED MEDHAT | 230039 | Dataset validation and EDA |
 | AHMED ADEL | 23P0046 | ADR regression and regression evaluation |
 | MOHAMED HASSAN | 23P0042 | Cancellation classification and evaluation |
 | AHMED MOKHTAR | 23P0081 | Clustering, profiles and PCA visualization |

@@ -4,8 +4,8 @@
   "contributions_status": "pending",
   "work_allocation_status": "assigned",
   "members": [
-    {"name": "OMAR MEDHAT", "student_id": "23P0026", "github_username": "Omar-Medhat1", "responsibility": "Dataset validation, EDA and GitHub coordination", "contribution_status": "assigned_pending_work"},
-    {"name": "AHMED MEDHAT", "student_id": "230039", "github_username": null, "responsibility": "Preprocessing, feature engineering and leakage audit", "contribution_status": "assigned_pending_work"},
+    {"name": "OMAR MEDHAT", "student_id": "23P0026", "github_username": "Omar-Medhat1", "responsibility": "Preprocessing, feature engineering, leakage audit; GitHub coordination", "contribution_status": "assigned_pending_work"},
+    {"name": "AHMED MEDHAT", "student_id": "230039", "github_username": null, "responsibility": "Dataset validation and EDA", "contribution_status": "assigned_pending_work"},
     {"name": "AHMED ADEL", "student_id": "23P0046", "github_username": null, "responsibility": "ADR regression and regression evaluation", "contribution_status": "assigned_pending_work"},
     {"name": "MOHAMED HASSAN", "student_id": "23P0042", "github_username": null, "responsibility": "Cancellation classification and evaluation", "contribution_status": "assigned_pending_work"},
     {"name": "AHMED MOKHTAR", "student_id": "23P0081", "github_username": null, "responsibility": "Clustering, profiles and PCA visualization", "contribution_status": "assigned_pending_work"},

@@ -10,8 +10,8 @@ Technical progress report for H2 (City Hotel). This version contains executed ex
 
 | Student name | Student ID | Assigned responsibility |
 | --- | --- | --- |
-| OMAR MEDHAT | 23P0026 | Dataset validation, EDA and GitHub coordination |
-| AHMED MEDHAT | 230039 | Preprocessing, feature engineering and leakage audit |
+| OMAR MEDHAT | 23P0026 | Preprocessing, feature engineering, leakage audit; GitHub coordination |
+| AHMED MEDHAT | 230039 | Dataset validation and EDA |
 | AHMED ADEL | 23P0046 | ADR regression and regression evaluation |
 | MOHAMED HASSAN | 23P0042 | Cancellation classification and evaluation |
 | AHMED MOKHTAR | 23P0081 | Clustering, profiles and PCA visualization |
@@ -236,7 +236,7 @@ Complete supervised PCA comparisons for at least two models and an original/PCA/
 
 ### Team and contribution record
 
-Assigned roles appear on the cover: Omar Medhat owns data/EDA and GitHub coordination; Ahmed Medhat preprocessing and leakage; Ahmed Adel regression; Mohamed Hassan classification; Ahmed Mokhtar clustering; Hala Eltaweel the report and reproducibility. Concrete tasks, files, commands, and completion criteria are in docs/contributions.md. These are assignments; completed contributions must be supported by actual work and evidence from each member's account. All members must understand the complete workflow.
+Assigned roles appear on the cover: Omar Medhat owns preprocessing, feature engineering, leakage prevention and GitHub coordination; Ahmed Medhat data validation and EDA; Ahmed Adel regression; Mohamed Hassan classification; Ahmed Mokhtar clustering; Hala Eltaweel the report and reproducibility. Concrete tasks, files, commands, and completion criteria are in docs/contributions.md. These are assignments; completed contributions must be supported by actual work and evidence from each member's account. All members must understand the complete workflow.
 
 The ZIP excludes raw downloaded data, fitted models/pipelines, virtual environments, and Git internals. Its README records the repository URL and submitted commit SHA. This remains a technical draft until other GitHub accounts and actual contribution records are completed.
 

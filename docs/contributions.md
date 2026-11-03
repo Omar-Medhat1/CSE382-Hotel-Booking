@@ -6,8 +6,8 @@ Status: responsibilities are assigned across six members. Record completed work 
 
 | Member | Student ID | Assigned area | Evidence to produce |
 | --- | --- | --- | --- |
-| OMAR MEDHAT | 23P0026 | Dataset validation, EDA, GitHub coordination | Source-check and EDA review; documented findings; links to actual changes |
-| AHMED MEDHAT | 230039 | Preprocessing, feature engineering, temporal splitting, leakage audit | Feature/pipeline review; split and leakage checks; justified corrections |
+| OMAR MEDHAT | 23P0026 | Preprocessing, feature engineering, temporal splitting, leakage audit; GitHub coordination | Feature/pipeline review; split and leakage checks; justified corrections and integration |
+| AHMED MEDHAT | 230039 | Dataset validation and EDA | Source-check and EDA review; documented findings; links to actual changes |
 | AHMED ADEL | 23P0046 | ADR regression and evaluation | Reproduced Ridge/reference metrics; residual analysis; model limitations |
 | MOHAMED HASSAN | 23P0042 | Cancellation classification and evaluation | Reproduced classification metrics; confusion/ROC/PR interpretation; imbalance analysis |
 | AHMED MOKHTAR | 23P0081 | Clustering, profiles, PCA visualization | Reproduced cluster metrics and profiles; interpretation and geometry limitations |
@@ -15,22 +15,22 @@ Status: responsibilities are assigned across six members. Record completed work 
 
 ## Concrete tasks and completion criteria
 
-### OMAR MEDHAT - data and EDA
+### AHMED MEDHAT - data and EDA
 
 - Review `src/data/loading.py`, `src/data/validation.py`, and `src/analysis/eda.py`.
 - Run `python main.py download`, `python main.py validate-data`, and `python main.py analyze` using the project environment.
 - Check the 79,330-by-31 schema, fingerprint, padded source strings, four unknown Children values, 24 unknown Country values, and Agent/Company not-applicable categories.
 - Review duplicate handling, unusual values, category cardinality, distributions, and training-only plots. Document findings and make any justified corrections.
-- Maintain repository setup instructions, add teammates as collaborators once their usernames are supplied, and coordinate integration of their actual changes.
 - Completion evidence: command results, an EDA explanation, and links to the member's actual changes or substantive review.
 
-### AHMED MEDHAT - preprocessing and leakage prevention
+### OMAR MEDHAT - preprocessing, leakage prevention and GitHub coordination
 
 - Review `src/features/policy.py`, `src/preprocessing/pipelines.py`, `src/data/splitting.py`, and `docs/leakage-audit.md`.
 - Explain the day-before-arrival prediction point, active-booking risk set, label-availability purging, and all feature exclusions.
 - Check median/UNKNOWN imputation, categorical IDs, one-hot handling of unseen categories, scaling, and deterministic stay/calendar features.
 - Run `python -m unittest discover -s tests -v` and, after baselines exist, `python main.py verify`. Check training-only fitted statistics and zero cross-partition predictor-group overlap.
 - Document any timing assumptions or limitations and make evidence-backed corrections without consulting final-test performance.
+- Maintain repository setup instructions, add teammates as collaborators once their usernames are supplied, and coordinate integration of their actual changes.
 - Completion evidence: feature/pipeline audit, verified checks, and links to actual changes or substantive review.
 
 ### AHMED ADEL - regression
