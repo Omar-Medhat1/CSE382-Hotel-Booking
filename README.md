@@ -4,7 +4,7 @@ Repository: https://github.com/Omar-Medhat1/CSE382-Hotel-Booking
 
 ## Current status
 
-Milestone 1 technical work is implemented and executed: source verification, EDA, chronological holdouts, leakage-aware feature policies, preprocessing pipelines, untuned supervised/clustering baselines, measured results, and a progress report. **All six team names and student IDs are recorded. Other members' GitHub accounts and actual contributions remain pending; complete those details before submitting.**
+Milestone 1 technical work is implemented and executed: source verification, EDA, chronological holdouts, leakage-aware feature policies, preprocessing pipelines, untuned supervised/clustering baselines, and measured results. A separate Milestone 1 progress report is omitted following the TA's updated submission guidance. **All six team names and student IDs are recorded. Other members' GitHub accounts and actual contributions remain pending; complete those details before submitting.**
 
 Supervised predictions apply to bookings active at the **end of the day before scheduled arrival**, reflecting the source paper's snapshot timing. The cancellation task predicts late cancellation/no-show in that risk set; it is not a booking-creation forecast. Final supervised test evaluation remains reserved for Milestone 2.
 
@@ -20,7 +20,6 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe main.py download
 .\.venv\Scripts\python.exe main.py baseline
 .\.venv\Scripts\python.exe main.py verify
-.\.venv\Scripts\python.exe main.py report
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
@@ -60,13 +59,11 @@ src/classification/     Late-cancellation baseline
 src/clustering/         Independent full-H2 unsupervised baseline
 src/evaluation/         Validation metrics
 src/experiments.py      Reproduction workflow
-src/reporting.py        PDF and Markdown progress report
 src/inference.py        Saved-pipeline prediction
 src/verification.py     Split/statistic/artifact integrity checks
 data/raw/               Downloaded H2.csv (excluded from Git)
 artifacts/              Generated fitted objects (excluded from Git)
 results/                Figures and measured results
-reports/                Milestone progress reports
 docs/                   Team details and implementation plan
 examples/               Example booking JSON for saved inference
 scripts/                Submission packaging
@@ -85,14 +82,12 @@ tests/                  Integrity tests
 
 **The classifier catches only 1 of 170 validation positives at the default threshold and is not operationally useful at that threshold.** High accuracy is misleading in this late-cancellation risk set. These are untuned preliminary results; no test performance is reported.
 
-Training: 28,952 eligible arrivals before 1 January 2017; validation: 6,545 arrivals in January-April 2017; final test: 8,576 arrivals in May-August 2017. The risk-set filter excludes 34,740 records; label-availability purging excludes another 247 training and 270 validation records. See the report and audit for exact cutoff dates and limitations.
+Training: 28,952 eligible arrivals before 1 January 2017; validation: 6,545 arrivals in January-April 2017; final test: 8,576 arrivals in May-August 2017. The risk-set filter excludes 34,740 records; label-availability purging excludes another 247 training and 270 validation records. See docs/leakage-audit.md and results/split_metadata.json for exact cutoff dates and limitations.
 
 Numeric imputation/scaling and categorical encoding are fitted on training rows only. Identical predictor groups have zero overlap across chronological partitions. Repeated source records are retained because there are no unique booking IDs. Clustering uses separate full-source preprocessing; its labels and transforms never enter supervised models.
 
-## Reports and evidence
+## Results and supporting notes
 
-- [Progress report (PDF)](reports/Milestone1_Progress_Report.pdf)
-- [Progress report (Markdown)](reports/Milestone1_Progress_Report.md)
 - [Complete preliminary leakage audit: all 31 columns](docs/leakage-audit.md)
 - [Milestone 2 plan](docs/milestone-2-plan.md)
 - `results/tables/`: schema, training ranges/cardinality/outlier summaries, validation metrics, cluster profiles, and compressed partition/cluster assignment CSVs.
@@ -124,11 +119,11 @@ Inputs use the original booking source names. The example is a synthetic active 
 | AHMED MOKHTAR | 23P0081 | Clustering workflow, PCA analysis and segment interpretation |
 | HALA ELTAWEEL | 23P0232 | CLI integration, system checks and reproducible submission |
 
-The confirmed team has six members; see `docs/team.md` and `docs/team.json`. [The work allocation](docs/contributions.md) gives each member a complete work package with technical ownership, analysis, verification, and their own report section. Hala coordinates CLI/system integration and report assembly; each technical owner supplies and checks their section. Omar retains repository-owner access administration. Roles are assigned; completed contributions and other members' GitHub usernames remain pending. Each member must contribute through their own GitHub account and record actual work and verification evidence.
+The confirmed team has six members; see `docs/team.md` and `docs/team.json`. [The work allocation](docs/contributions.md) gives each member a complete work package with technical ownership, analysis, and verification. Hala coordinates CLI/system integration, checks setup/run instructions, and verifies the submission package. Omar retains repository-owner access administration. Roles are assigned; completed contributions and other members' GitHub usernames remain pending. Each member must contribute through their own GitHub account and record actual work and verification evidence.
 
 ## Submission
 
-Complete the pending GitHub account/contribution details and commit the final version before submitting. The package includes source code, configuration, README, dependencies, the report, and measured result tables/figures. It excludes the downloaded source CSV, trained models/fitted pipelines, virtual environments, secrets, and Git internals; the data and artifacts can be regenerated with the exact commands above.
+Complete the pending GitHub account/contribution details and commit the final version before submitting. The package includes source code, configuration, README, dependencies, measured result tables/figures, and supporting audit/team notes. The separate Milestone 1 report is omitted under the TA's updated guidance. The package also excludes the downloaded source CSV, trained models/fitted pipelines, virtual environments, secrets, and Git internals; the data and artifacts can be regenerated with the exact commands above.
 
 From a clean committed checkout, create the ZIP:
 

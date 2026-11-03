@@ -1,6 +1,6 @@
 # Milestone 1 implementation plan
 
-This document records the initial implementation plan. Executed evidence and current decisions are in the progress report, docs/leakage-audit.md, and results/run_summary.json. In particular, source investigation established a day-before-arrival prediction point and a late-cancellation risk set, replacing the initial open choice of prediction point. Remaining final-project experiments are documented in docs/milestone-2-plan.md.
+This document records the implementation plan. Executed evidence and current decisions are in README.md, docs/leakage-audit.md, and results/run_summary.json. Milestone 1 is submitted without a separate progress report following the TA's updated guidance. Source investigation established a day-before-arrival prediction point and a late-cancellation risk set. Remaining final-project experiments are documented in docs/milestone-2-plan.md.
 
 ## Data understanding
 
@@ -22,6 +22,6 @@ Use seed 382 wherever randomness is involved. Choose and justify a chronological
 
 These are candidate choices pending data inspection. Run untuned baselines for Milestone 1. Document all defaults and runtime versions. Do not present proposed or invented numbers as measured results.
 
-## Report and remaining project
+## Submission and remaining project
 
-Write the progress report from generated result tables and figures. Include completed work, interpretations, preliminary leakage audit, actual member contributions, and limitations. Plan at least three model families per task with tuning for every selected model, PCA/LDA comparisons, final supervised evaluation, saved inference artifacts, and a CLI or graphical application for Milestone 2.
+Submit the reproducible code, setup/run instructions, result tables and figures, and supporting audit/team notes. Record actual member contributions as the work is performed. No separate progress report is included for Milestone 1. Milestone 2 still requires the final project report and at least three model families per task with tuning, PCA/LDA comparisons, final supervised evaluation, saved inference artifacts, and the final application.

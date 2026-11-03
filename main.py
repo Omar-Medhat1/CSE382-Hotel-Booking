@@ -18,7 +18,6 @@ def main():
     commands.add_parser("download", help="Download and verify the original H2 dataset.")
     commands.add_parser("analyze", help="Generate EDA and the fixed split manifest.")
     commands.add_parser("baseline", help="Run EDA and all Milestone 1 baseline experiments.")
-    commands.add_parser("report", help="Generate the progress report from measured results.")
     commands.add_parser("verify", help="Check partitions, artifacts, and reload predictions.")
     prediction = commands.add_parser("predict", help="Load a saved baseline for one booking.")
     prediction.add_argument("--task", choices=["regression", "classification"], required=True)
@@ -36,7 +35,7 @@ def main():
         print("Repository:", config["repository"])
         return 0
 
-    if args.command in ("download", "analyze", "baseline", "report", "verify", "predict"):
+    if args.command in ("download", "analyze", "baseline", "verify", "predict"):
         try:
             if args.command == "download":
                 from src.data.loading import download
@@ -54,10 +53,6 @@ def main():
             elif args.command == "baseline":
                 from src.experiments import run
                 run()
-            elif args.command == "report":
-                from src.reporting import build
-                build()
-                print("Progress report written to reports/.")
             elif args.command == "verify":
                 from src.verification import verify
                 print(json.dumps(verify(), indent=2))

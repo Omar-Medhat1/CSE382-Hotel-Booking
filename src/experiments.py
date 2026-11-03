@@ -142,7 +142,7 @@ def run():
     pd.DataFrame(rows).to_csv(tables / "supervised_validation_metrics.csv", index=False)
     pd.DataFrame([cluster_metrics]).to_csv(tables / "clustering_metrics.csv", index=False)
     versions = {name: importlib.metadata.version(name) for name in
-                ["pandas", "numpy", "scipy", "scikit-learn", "matplotlib", "joblib", "threadpoolctl", "reportlab"]}
+                ["pandas", "numpy", "scipy", "scikit-learn", "matplotlib", "joblib", "threadpoolctl"]}
     run_info = {"python": platform.python_version(), "packages": versions, "seed": seed,
                 "thread_limit": 2, "source": {**validation, "path": CONFIG["dataset"]["path"]}, "split": split_info, "eda": analysis,
                 "models": details, "clustering": cluster_metrics,

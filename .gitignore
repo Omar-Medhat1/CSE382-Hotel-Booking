@@ -10,6 +10,9 @@ data/raw/*.csv
 artifacts/*
 !artifacts/.gitkeep
 
+# Milestone 1 is submitted without a separate progress report.
+reports/
+
 # Local credentials and editor files
 .env
 .env.*

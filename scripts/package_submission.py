@@ -30,6 +30,8 @@ def main():
     entries = {}
     for relative in paths:
         path = Path(relative)
+        if path.parts[0] == "reports":
+            continue
         if path.parts[0] in (".git", ".venv", "artifacts") and path.name != ".gitkeep":
             continue
         if path.parts[:2] == ("data", "raw") and path.name != ".gitkeep":
@@ -56,6 +58,7 @@ def main():
         "readme_metadata_substitution": "The archive README replaces its commit placeholder with the source snapshot SHA; the checkout is unchanged.",
         "source_data_sha256": run["source"]["sha256"],
         "final_test_evaluated": False,
+        "milestone_1_report_included": False,
         "files_sha256": {path: hashlib.sha256(data).hexdigest() for path, data in sorted(entries.items())},
     }
     entries["SUBMISSION.json"] = json.dumps(metadata, indent=2).encode("utf-8")
@@ -67,6 +70,7 @@ def main():
     with zipfile.ZipFile(destination) as archive:
         assert archive.testzip() is None
         assert not any(".joblib" in path or "/.venv/" in path or path.endswith("/H2.csv") for path in archive.namelist())
+        assert not any("/reports/" in path for path in archive.namelist())
         assert commit in archive.read(f"{ROOT.name}/README.md").decode()
     print(json.dumps({"zip": str(destination), "source_commit": commit, "files": len(entries),
                       "bytes": destination.stat().st_size, "status": metadata["status"]}, indent=2))
