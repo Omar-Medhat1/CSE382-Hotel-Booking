@@ -4,18 +4,18 @@ CITY HOTEL BOOKING DEMAND | CSE382 | 3 NOVEMBER 2026
 
 **Data preparation and baseline experiments**
 
-Technical progress report for H2 (City Hotel). This version contains executed experiments and reproducible source code. The six-member roster and student IDs are confirmed below. Other members' GitHub accounts and actual contribution records remain pending before submission.
+Technical progress report for H2 (City Hotel). This version contains executed experiments and reproducible source code. Responsibilities are assigned across the six confirmed members below. Individual completion evidence and other members' GitHub accounts remain pending before submission.
 
-### Project team
+### Project team and assigned responsibilities
 
-| Student name | Student ID |
-| --- | --- |
-| OMAR MEDHAT | 23P0026 |
-| AHMED MEDHAT | 230039 |
-| AHMED ADEL | 23P0046 |
-| MOHAMED HASSAN | 23P0042 |
-| AHMED MOKHTAR | 23P0081 |
-| HALA ELTAWEEL | 23P0232 |
+| Student name | Student ID | Assigned responsibility |
+| --- | --- | --- |
+| OMAR MEDHAT | 23P0026 | Dataset validation, EDA and GitHub coordination |
+| AHMED MEDHAT | 230039 | Preprocessing, feature engineering and leakage audit |
+| AHMED ADEL | 23P0046 | ADR regression and regression evaluation |
+| MOHAMED HASSAN | 23P0042 | Cancellation classification and evaluation |
+| AHMED MOKHTAR | 23P0081 | Clustering, profiles and PCA visualization |
+| HALA ELTAWEEL | 23P0232 | Report, reproducibility and submission packaging |
 
 | Area | Measured result / status |
 | --- | --- |
@@ -236,7 +236,7 @@ Complete supervised PCA comparisons for at least two models and an original/PCA/
 
 ### Team and contribution record
 
-The six confirmed members and IDs appear on the cover and in docs/team.md. Repository owner: OMAR MEDHAT (23P0026), GitHub Omar-Medhat1. Other members' GitHub usernames and actual individual contribution statements remain pending. No unperformed work is assigned to a member; every member must contribute through their own account and understand the complete workflow.
+Assigned roles appear on the cover: Omar Medhat owns data/EDA and GitHub coordination; Ahmed Medhat preprocessing and leakage; Ahmed Adel regression; Mohamed Hassan classification; Ahmed Mokhtar clustering; Hala Eltaweel the report and reproducibility. Concrete tasks, files, commands, and completion criteria are in docs/contributions.md. These are assignments; completed contributions must be supported by actual work and evidence from each member's account. All members must understand the complete workflow.
 
 The ZIP excludes raw downloaded data, fitted models/pipelines, virtual environments, and Git internals. Its README records the repository URL and submitted commit SHA. This remains a technical draft until other GitHub accounts and actual contribution records are completed.
 

@@ -39,11 +39,11 @@ def build():
 
     page("Milestone 1", "CITY HOTEL BOOKING DEMAND | CSE382 | 3 NOVEMBER 2026", [
         ("p", "<b>Data preparation and baseline experiments</b>"),
-        ("p", "Technical progress report for H2 (City Hotel). This version contains executed experiments and reproducible source code. The six-member roster and student IDs are confirmed below. Other members' GitHub accounts and actual contribution records remain pending before submission."),
-        ("h", "Project team"),
-        ("table", ["Student name", "Student ID"],
-         [[member["name"], member["student_id"]] for member in team["members"]],
-         [WIDTH * .67, WIDTH * .33]),
+        ("p", "Technical progress report for H2 (City Hotel). This version contains executed experiments and reproducible source code. Responsibilities are assigned across the six confirmed members below. Individual completion evidence and other members' GitHub accounts remain pending before submission."),
+        ("h", "Project team and assigned responsibilities"),
+        ("table", ["Student name", "Student ID", "Assigned responsibility"],
+         [[member["name"], member["student_id"], member["responsibility"]] for member in team["members"]],
+         [170, 85, WIDTH - 255]),
         ("table", ["Area", "Measured result / status"], [
             ["Source verified", "79,330 records; 31 original columns"],
             ["ADR regression", f"Ridge validation MAE {ridge['mae']:.2f}; RMSE {ridge['rmse']:.2f}; R-squared {ridge['r2']:.3f}"],
@@ -184,7 +184,7 @@ def build():
         ("p", "Compare at least three model/algorithm families per task, with baseline and tuned results for each. Add Random Forest and a kernel experiment; document search spaces and purged temporal folds. Prioritize rare-positive average precision and threshold tradeoffs. Compare K-Means, hierarchical clustering, and DBSCAN using unsupervised criteria and stability."),
         ("p", "Complete supervised PCA comparisons for at least two models and an original/PCA/LDA classifier comparison. Freeze selection before final supervised test evaluation. Extend the CLI or add a GUI, expose comparison/tuning/clustering results, and retain saved inference artifacts for the discussion. Detailed plan: docs/milestone-2-plan.md."),
         ("h", "Team and contribution record"),
-        ("p", "The six confirmed members and IDs appear on the cover and in docs/team.md. Repository owner: OMAR MEDHAT (23P0026), GitHub Omar-Medhat1. Other members' GitHub usernames and actual individual contribution statements remain pending. No unperformed work is assigned to a member; every member must contribute through their own account and understand the complete workflow."),
+        ("p", "Assigned roles appear on the cover: Omar Medhat owns data/EDA and GitHub coordination; Ahmed Medhat preprocessing and leakage; Ahmed Adel regression; Mohamed Hassan classification; Ahmed Mokhtar clustering; Hala Eltaweel the report and reproducibility. Concrete tasks, files, commands, and completion criteria are in docs/contributions.md. These are assignments; completed contributions must be supported by actual work and evidence from each member's account. All members must understand the complete workflow."),
         ("p", "The ZIP excludes raw downloaded data, fitted models/pipelines, virtual environments, and Git internals. Its README records the repository URL and submitted commit SHA. This remains a technical draft until other GitHub accounts and actual contribution records are completed."),
         ("h", "References"),
         ("small", "[1] Antonio, Almeida and Nunes (2019). Hotel booking demand datasets. Data in Brief 22, 41-49. https://pmc.ncbi.nlm.nih.gov/articles/PMC6297060/ . Source semantics: Table 1 and sections 2-3. [2] scikit-learn documentation: https://scikit-learn.org/stable/modules/compose.html and https://scikit-learn.org/stable/modules/clustering.html . Course requirements: supplied CSE382 project brief, Milestone 1 on page 10."),

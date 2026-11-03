@@ -11,4 +11,4 @@ Confirmed roster: six students. Names and student IDs are recorded below; unprov
 | Member 5 | AHMED MOKHTAR | 23P0081 | Pending |
 | Member 6 | HALA ELTAWEEL | 23P0232 | Pending |
 
-Actual individual contributions are recorded separately in `docs/contributions.md`; no work is assigned to a member solely because they appear in the roster.
+Responsibilities are assigned in `docs/team.json` and the work-allocation table in `README.md`. `docs/contributions.md` contains concrete tasks and completion criteria for all six members, followed by a log for actual completed work. Individual completion remains unverified until supporting work is recorded.

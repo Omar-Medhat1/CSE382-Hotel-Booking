@@ -115,16 +115,16 @@ Inputs use the original booking source names. The example is a synthetic active 
 
 ## Team and contributions
 
-| Name | Student ID |
-| --- | --- |
-| OMAR MEDHAT | 23P0026 |
-| AHMED MEDHAT | 230039 |
-| AHMED ADEL | 23P0046 |
-| MOHAMED HASSAN | 23P0042 |
-| AHMED MOKHTAR | 23P0081 |
-| HALA ELTAWEEL | 23P0232 |
+| Name | Student ID | Assigned responsibility |
+| --- | --- | --- |
+| OMAR MEDHAT | 23P0026 | Dataset validation, EDA and GitHub coordination |
+| AHMED MEDHAT | 230039 | Preprocessing, feature engineering and leakage audit |
+| AHMED ADEL | 23P0046 | ADR regression and regression evaluation |
+| MOHAMED HASSAN | 23P0042 | Cancellation classification and evaluation |
+| AHMED MOKHTAR | 23P0081 | Clustering, profiles and PCA visualization |
+| HALA ELTAWEEL | 23P0232 | Report, reproducibility and submission packaging |
 
-The confirmed team has six members; see `docs/team.md` and `docs/team.json`. Record actual work in `docs/contributions.md`. Each member must contribute through their own GitHub account. Other members' usernames and actual contribution records remain pending. Do not attribute unperformed work to a member.
+The confirmed team has six members; see `docs/team.md` and `docs/team.json`. [The work allocation](docs/contributions.md) provides concrete tasks, files, reproduction commands, and completion criteria for each member. Roles are assigned; completed contributions and other members' GitHub usernames remain pending. Each member must contribute through their own GitHub account and record actual work and verification evidence.
 
 ## Submission
 
