@@ -24,6 +24,9 @@ WIDTH = A4[0] - 84
 
 def build():
     run = json.loads((ROOT / "results/run_summary.json").read_text(encoding="utf-8"))
+    team = json.loads((ROOT / "docs/team.json").read_text(encoding="utf-8"))
+    if team["team_size"] != len(team["members"]):
+        raise ValueError("Team size does not match the roster.")
     eda, models, cluster = run["eda"], run["models"], run["clustering"]
     ridge, mean = models["ridge"], models["training_mean"]
     logit, prior = models["logistic_regression"], models["training_prior"]
@@ -36,7 +39,11 @@ def build():
 
     page("Milestone 1", "CITY HOTEL BOOKING DEMAND | CSE382 | 3 NOVEMBER 2026", [
         ("p", "<b>Data preparation and baseline experiments</b>"),
-        ("p", "Technical progress report for H2 (City Hotel). This version contains executed experiments and reproducible source code. Team identity and individual contribution details are awaiting confirmation and must be completed before submission."),
+        ("p", "Technical progress report for H2 (City Hotel). This version contains executed experiments and reproducible source code. The six-member roster and student IDs are confirmed below. Other members' GitHub accounts and actual contribution records remain pending before submission."),
+        ("h", "Project team"),
+        ("table", ["Student name", "Student ID"],
+         [[member["name"], member["student_id"]] for member in team["members"]],
+         [WIDTH * .67, WIDTH * .33]),
         ("table", ["Area", "Measured result / status"], [
             ["Source verified", "79,330 records; 31 original columns"],
             ["ADR regression", f"Ridge validation MAE {ridge['mae']:.2f}; RMSE {ridge['rmse']:.2f}; R-squared {ridge['r2']:.3f}"],
@@ -169,7 +176,7 @@ def build():
         ("p", "See docs/leakage-audit.md for the complete preliminary audit. A passing code check supports the recorded protocol; it does not certify every unobserved source timestamp or guarantee future generalization."),
     ])
 
-    page("09 / Reproduction and remaining work", "TEAM INFORMATION IS PENDING; FINAL PROJECT EXPERIMENTS ARE PLANNED", [
+    page("09 / Reproduction and remaining work", "TEAM ROSTER CONFIRMED; GITHUB ACCOUNTS AND CONTRIBUTIONS PENDING", [
         ("h", "Exact reproduction sequence"),
         ("code", "py -3.12 -m venv .venv\n.\\.venv\\Scripts\\python.exe -m pip install -r requirements.txt\n.\\.venv\\Scripts\\python.exe main.py download\n.\\.venv\\Scripts\\python.exe main.py baseline\n.\\.venv\\Scripts\\python.exe main.py verify\n.\\.venv\\Scripts\\python.exe main.py report\n.\\.venv\\Scripts\\python.exe -m unittest discover -s tests -v"),
         ("p", f"Verified Python {run['python']}; seed 382; two numerical threads. Pinned packages include scikit-learn {run['packages']['scikit-learn']}, pandas {run['packages']['pandas']}, NumPy {run['packages']['numpy']}, and Matplotlib {run['packages']['matplotlib']}. Exact model parameters and measured fit times are in results/run_summary.json. Artifacts are generated locally; inference loads them without retraining."),
@@ -177,16 +184,16 @@ def build():
         ("p", "Compare at least three model/algorithm families per task, with baseline and tuned results for each. Add Random Forest and a kernel experiment; document search spaces and purged temporal folds. Prioritize rare-positive average precision and threshold tradeoffs. Compare K-Means, hierarchical clustering, and DBSCAN using unsupervised criteria and stability."),
         ("p", "Complete supervised PCA comparisons for at least two models and an original/PCA/LDA classifier comparison. Freeze selection before final supervised test evaluation. Extend the CLI or add a GUI, expose comparison/tuning/clustering results, and retain saved inference artifacts for the discussion. Detailed plan: docs/milestone-2-plan.md."),
         ("h", "Team and contribution record"),
-        ("p", "Repository owner account: Omar-Medhat1. Names, student IDs, other member accounts, and actual individual contribution statements are pending. No unperformed work is assigned to a member. Complete docs/team.md and docs/contributions.md before submitting; every member must contribute through their own account and understand the complete workflow."),
-        ("p", "The ZIP excludes raw downloaded data, fitted models/pipelines, virtual environments, and Git internals. Its README records the repository URL and submitted commit SHA. This is a technical draft until team information is completed."),
+        ("p", "The six confirmed members and IDs appear on the cover and in docs/team.md. Repository owner: OMAR MEDHAT (23P0026), GitHub Omar-Medhat1. Other members' GitHub usernames and actual individual contribution statements remain pending. No unperformed work is assigned to a member; every member must contribute through their own account and understand the complete workflow."),
+        ("p", "The ZIP excludes raw downloaded data, fitted models/pipelines, virtual environments, and Git internals. Its README records the repository URL and submitted commit SHA. This remains a technical draft until other GitHub accounts and actual contribution records are completed."),
         ("h", "References"),
         ("small", "[1] Antonio, Almeida and Nunes (2019). Hotel booking demand datasets. Data in Brief 22, 41-49. https://pmc.ncbi.nlm.nih.gov/articles/PMC6297060/ . Source semantics: Table 1 and sections 2-3. [2] scikit-learn documentation: https://scikit-learn.org/stable/modules/compose.html and https://scikit-learn.org/stable/modules/clustering.html . Course requirements: supplied CSE382 project brief, Milestone 1 on page 10."),
     ])
 
-    _render(sections)
+    _render(sections, team)
 
 
-def _render(sections):
+def _render(sections, team):
     styles = getSampleStyleSheet()
     styles.add(ParagraphStyle(name="BodyReport", fontName="Helvetica", fontSize=9.2, leading=13.0,
                               textColor=NAVY, spaceAfter=9, splitLongWords=True))
@@ -259,12 +266,13 @@ def _render(sections):
         canvas.line(42, 38, A4[0]-42, 38)
         canvas.setFont("Helvetica", 8)
         canvas.setFillColor(MUTED)
-        canvas.drawString(42, 25, "CSE382 | Milestone 1 | Technical draft - team details pending")
+        canvas.drawString(42, 25, "CSE382 | Milestone 1 | Draft - GitHub / contribution details pending")
         canvas.drawRightString(A4[0]-42, 25, str(doc.page))
         canvas.restoreState()
 
     doc = SimpleDocTemplate(str(output / "Milestone1_Progress_Report.pdf"), pagesize=A4,
                             leftMargin=42, rightMargin=42, topMargin=40, bottomMargin=52,
                             title="CSE382 Milestone 1 - City Hotel Booking Demand",
-                            author="CSE382 Project Team", subject="Data preparation and untuned baselines")
+                            author=", ".join(member["name"] for member in team["members"]),
+                            subject="Data preparation and untuned baselines")
     doc.build(story, onFirstPage=footer, onLaterPages=footer)

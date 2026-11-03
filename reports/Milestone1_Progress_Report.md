@@ -4,7 +4,18 @@ CITY HOTEL BOOKING DEMAND | CSE382 | 3 NOVEMBER 2026
 
 **Data preparation and baseline experiments**
 
-Technical progress report for H2 (City Hotel). This version contains executed experiments and reproducible source code. Team identity and individual contribution details are awaiting confirmation and must be completed before submission.
+Technical progress report for H2 (City Hotel). This version contains executed experiments and reproducible source code. The six-member roster and student IDs are confirmed below. Other members' GitHub accounts and actual contribution records remain pending before submission.
+
+### Project team
+
+| Student name | Student ID |
+| --- | --- |
+| OMAR MEDHAT | 23P0026 |
+| AHMED MEDHAT | 230039 |
+| AHMED ADEL | 23P0046 |
+| MOHAMED HASSAN | 23P0042 |
+| AHMED MOKHTAR | 23P0081 |
+| HALA ELTAWEEL | 23P0232 |
 
 | Area | Measured result / status |
 | --- | --- |
@@ -201,7 +212,7 @@ See docs/leakage-audit.md for the complete preliminary audit. A passing code che
 
 ## 09 / Reproduction and remaining work
 
-TEAM INFORMATION IS PENDING; FINAL PROJECT EXPERIMENTS ARE PLANNED
+TEAM ROSTER CONFIRMED; GITHUB ACCOUNTS AND CONTRIBUTIONS PENDING
 
 ### Exact reproduction sequence
 
@@ -225,9 +236,9 @@ Complete supervised PCA comparisons for at least two models and an original/PCA/
 
 ### Team and contribution record
 
-Repository owner account: Omar-Medhat1. Names, student IDs, other member accounts, and actual individual contribution statements are pending. No unperformed work is assigned to a member. Complete docs/team.md and docs/contributions.md before submitting; every member must contribute through their own account and understand the complete workflow.
+The six confirmed members and IDs appear on the cover and in docs/team.md. Repository owner: OMAR MEDHAT (23P0026), GitHub Omar-Medhat1. Other members' GitHub usernames and actual individual contribution statements remain pending. No unperformed work is assigned to a member; every member must contribute through their own account and understand the complete workflow.
 
-The ZIP excludes raw downloaded data, fitted models/pipelines, virtual environments, and Git internals. Its README records the repository URL and submitted commit SHA. This is a technical draft until team information is completed.
+The ZIP excludes raw downloaded data, fitted models/pipelines, virtual environments, and Git internals. Its README records the repository URL and submitted commit SHA. This remains a technical draft until other GitHub accounts and actual contribution records are completed.
 
 ### References
 

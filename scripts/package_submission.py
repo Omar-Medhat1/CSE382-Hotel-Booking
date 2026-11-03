@@ -23,6 +23,7 @@ def main():
     commit = git("rev-parse", "HEAD").decode().strip()
     run = json.loads((ROOT / "results/run_summary.json").read_text())
     verification = json.loads((ROOT / "results/verification.json").read_text())
+    team = json.loads((ROOT / "docs/team.json").read_text())
     if run["final_test_evaluated"] or verification["final_test_evaluated"]:
         raise SystemExit("This Milestone 1 package expects the final test evaluation to remain reserved.")
     paths = git("ls-files", "-z").decode().strip("\0").split("\0")
@@ -49,7 +50,9 @@ def main():
         "repository": "https://github.com/Omar-Medhat1/CSE382-Hotel-Booking",
         "submitted_commit_sha": commit,
         "created_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
-        "status": "technical_draft_team_details_pending",
+        "status": "technical_draft_github_and_contributions_pending",
+        "team_size": team["team_size"],
+        "team_members": team["members"],
         "readme_metadata_substitution": "The archive README replaces its commit placeholder with the source snapshot SHA; the checkout is unchanged.",
         "source_data_sha256": run["source"]["sha256"],
         "final_test_evaluated": False,

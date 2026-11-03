@@ -4,7 +4,7 @@ Repository: https://github.com/Omar-Medhat1/CSE382-Hotel-Booking
 
 ## Current status
 
-Milestone 1 technical work is implemented and executed: source verification, EDA, chronological holdouts, leakage-aware feature policies, preprocessing pipelines, untuned supervised/clustering baselines, measured results, and a progress report. **Team names, student IDs, other GitHub accounts, and actual member contributions are pending. Complete those details before submitting.**
+Milestone 1 technical work is implemented and executed: source verification, EDA, chronological holdouts, leakage-aware feature policies, preprocessing pipelines, untuned supervised/clustering baselines, measured results, and a progress report. **All six team names and student IDs are recorded. Other members' GitHub accounts and actual contributions remain pending; complete those details before submitting.**
 
 Supervised predictions apply to bookings active at the **end of the day before scheduled arrival**, reflecting the source paper's snapshot timing. The cancellation task predicts late cancellation/no-show in that risk set; it is not a booking-creation forecast. Final supervised test evaluation remains reserved for Milestone 2.
 
@@ -115,11 +115,20 @@ Inputs use the original booking source names. The example is a synthetic active 
 
 ## Team and contributions
 
-Team details are pending; see `docs/team.md`. Record actual work in `docs/contributions.md`. Each member must contribute through their own GitHub account. Do not attribute unperformed work to a member.
+| Name | Student ID |
+| --- | --- |
+| OMAR MEDHAT | 23P0026 |
+| AHMED MEDHAT | 230039 |
+| AHMED ADEL | 23P0046 |
+| MOHAMED HASSAN | 23P0042 |
+| AHMED MOKHTAR | 23P0081 |
+| HALA ELTAWEEL | 23P0232 |
+
+The confirmed team has six members; see `docs/team.md` and `docs/team.json`. Record actual work in `docs/contributions.md`. Each member must contribute through their own GitHub account. Other members' usernames and actual contribution records remain pending. Do not attribute unperformed work to a member.
 
 ## Submission
 
-Complete the pending team/contribution details and commit the final version before submitting. The package includes source code, configuration, README, dependencies, the report, and measured result tables/figures. It excludes the downloaded source CSV, trained models/fitted pipelines, virtual environments, secrets, and Git internals; the data and artifacts can be regenerated with the exact commands above.
+Complete the pending GitHub account/contribution details and commit the final version before submitting. The package includes source code, configuration, README, dependencies, the report, and measured result tables/figures. It excludes the downloaded source CSV, trained models/fitted pipelines, virtual environments, secrets, and Git internals; the data and artifacts can be regenerated with the exact commands above.
 
 From a clean committed checkout, create the ZIP:
 
@@ -131,4 +140,4 @@ The packager fills the submitted commit SHA in the archive README and adds SUBMI
 
 Submitted commit SHA: __SUBMITTED_COMMIT_SHA__
 
-The placeholder is automatically replaced in the packaged README. This remains a draft until team identity and contributions are complete.
+The placeholder is automatically replaced in the packaged README. The roster is confirmed; this remains a draft until other GitHub accounts and actual contribution records are complete.

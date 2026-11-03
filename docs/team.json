@@ -1,0 +1,13 @@
+{
+  "team_size": 6,
+  "roster_status": "confirmed",
+  "contributions_status": "pending",
+  "members": [
+    {"name": "OMAR MEDHAT", "student_id": "23P0026", "github_username": "Omar-Medhat1"},
+    {"name": "AHMED MEDHAT", "student_id": "230039", "github_username": null},
+    {"name": "AHMED ADEL", "student_id": "23P0046", "github_username": null},
+    {"name": "MOHAMED HASSAN", "student_id": "23P0042", "github_username": null},
+    {"name": "AHMED MOKHTAR", "student_id": "23P0081", "github_username": null},
+    {"name": "HALA ELTAWEEL", "student_id": "23P0232", "github_username": null}
+  ]
+}
