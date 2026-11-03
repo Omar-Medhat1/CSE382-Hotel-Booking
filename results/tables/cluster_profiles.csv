@@ -1,0 +1,4 @@
+cluster,records,median_lead_days,median_nights,mean_adults,mean_children,mean_babies,median_weekend_share,top_market_segment,top_customer_type,top_room_type
+0,22063,13.0,2.0,1.3866654580066173,0.0009065772177145188,0.005121696958709151,0.0,Online TA,Transient,A
+1,52179,109.0,3.0,2.0444623315893367,0.0,0.0035454876482876253,0.25,Online TA,Transient,A
+2,5088,64.0,3.0,1.8801100628930818,1.4205974842767295,0.018474842767295597,0.25,Online TA,Transient,A

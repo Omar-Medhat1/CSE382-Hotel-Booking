@@ -1,0 +1,12 @@
+{
+  "source_checksum": "6796f5b9b2b9e7281662b29730fc2880f8e614107d0d14d09be2ede1a6e605a4",
+  "split_reproduction": "passed",
+  "predictor_group_overlap": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "train_only_imputation": "passed",
+  "artifact_reload_predictions": "passed",
+  "final_test_evaluated": false
+}

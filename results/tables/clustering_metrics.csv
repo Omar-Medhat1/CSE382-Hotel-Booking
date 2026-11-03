@@ -1,0 +1,2 @@
+model,configuration,n_clusters,rows,representation_dimensions,silhouette_sample_size,silhouette,davies_bouldin,inertia,fit_seconds,n_iter,plot_pca_explained_variance
+kmeans,untuned,3,79330,26,2000,0.21966760664493998,1.7386462001780945,445210.0457676597,1.1879613000000973,20,"[0.19471667386195513, 0.15049862606821074]"

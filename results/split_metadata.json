@@ -1,0 +1,21 @@
+{
+  "protocol": "End-of-day before arrival; lead time >=1; final status strictly after snapshot day.",
+  "train_arrival_before": "2017-01-01",
+  "validation_arrival_before": "2017-05-01",
+  "training_labels_before": "2016-12-31",
+  "validation_labels_before": "2017-04-30",
+  "partition_counts": {
+    "ineligible_at_snapshot": 34740,
+    "train": 28952,
+    "test": 8576,
+    "validation": 6545,
+    "purged_validation_late_label": 270,
+    "purged_train_late_label": 247
+  },
+  "predictor_group_overlap": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "final_test_evaluated": false
+}

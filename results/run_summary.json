@@ -1,0 +1,218 @@
+{
+  "python": "3.12.14",
+  "packages": {
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0",
+    "reportlab": "5.1.0"
+  },
+  "seed": 382,
+  "thread_limit": 2,
+  "source": {
+    "path": "data/raw/H2.csv",
+    "rows": 79330,
+    "columns": 31,
+    "sha256": "6796f5b9b2b9e7281662b29730fc2880f8e614107d0d14d09be2ede1a6e605a4",
+    "structural_validation": "passed",
+    "note": "EDA and semantic validation are still required."
+  },
+  "split": {
+    "protocol": "End-of-day before arrival; lead time >=1; final status strictly after snapshot day.",
+    "train_arrival_before": "2017-01-01",
+    "validation_arrival_before": "2017-05-01",
+    "training_labels_before": "2016-12-31",
+    "validation_labels_before": "2017-04-30",
+    "partition_counts": {
+      "ineligible_at_snapshot": 34740,
+      "train": 28952,
+      "test": 8576,
+      "validation": 6545,
+      "purged_validation_late_label": 270,
+      "purged_train_late_label": 247
+    },
+    "predictor_group_overlap": {
+      "train_validation": 0,
+      "train_test": 0,
+      "validation_test": 0
+    },
+    "final_test_evaluated": false
+  },
+  "eda": {
+    "source_rows": 79330,
+    "source_columns": 31,
+    "arrival_first": "2015-07-01",
+    "arrival_last": "2017-08-31",
+    "exact_duplicate_rows_after_first": 25902,
+    "unknown_counts": {
+      "Children": 4,
+      "Country": 24
+    },
+    "not_applicable_ids": {
+      "Agent": 8131,
+      "Company": 75641
+    },
+    "structural_flags": {
+      "zero_night_bookings": 331,
+      "zero_guest_bookings": 167,
+      "adults_zero": 390,
+      "negative_count_values": 0
+    },
+    "training_rows": 28952,
+    "training_cancellation_rate": 0.02994611771207516,
+    "training_adr": {
+      "mean": 100.30914030118818,
+      "median": 95.0,
+      "min": 0.0,
+      "max": 365.0,
+      "zero_count": 534,
+      "skewness": 0.6870919693458565
+    },
+    "duplicate_policy": "Retain repeated records: source lacks booking IDs; repeats may be real group bookings. Chronological cohorts preserve same-date predictor groups.",
+    "eda_scope": "Source-wide schema, missingness and structural flags; target distributions and associations use training rows only."
+  },
+  "models": {
+    "training_mean": {
+      "task": "regression",
+      "model": "training_mean",
+      "partition": "validation",
+      "configuration": "untuned",
+      "training_rows": 28952,
+      "validation_rows": 6545,
+      "fit_seconds": 0.06599140000025727,
+      "mae": 25.61355867127931,
+      "mse": 1274.1963905298783,
+      "rmse": 35.69588758568525,
+      "r2": -0.00042462026242851003,
+      "confusion_matrix": null,
+      "parameters": {
+        "constant": null,
+        "quantile": null,
+        "strategy": "mean"
+      }
+    },
+    "ridge": {
+      "task": "regression",
+      "model": "ridge",
+      "partition": "validation",
+      "configuration": "untuned",
+      "training_rows": 28952,
+      "validation_rows": 6545,
+      "fit_seconds": 0.4310225000003811,
+      "mae": 17.922556625838574,
+      "mse": 584.0651627299151,
+      "rmse": 24.167440136057337,
+      "r2": 0.5414261310302406,
+      "confusion_matrix": null,
+      "parameters": {
+        "alpha": 1.0,
+        "copy_X": true,
+        "fit_intercept": true,
+        "max_iter": null,
+        "positive": false,
+        "random_state": null,
+        "solver": "lsqr",
+        "tol": 0.0001
+      }
+    },
+    "training_prior": {
+      "task": "classification",
+      "model": "training_prior",
+      "partition": "validation",
+      "configuration": "untuned",
+      "training_rows": 28952,
+      "validation_rows": 6545,
+      "fit_seconds": 0.0027957999996033323,
+      "accuracy": 0.974025974025974,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.5,
+      "average_precision": 0.025974025974025976,
+      "confusion_matrix": [
+        [
+          6375,
+          0
+        ],
+        [
+          170,
+          0
+        ]
+      ],
+      "parameters": {
+        "constant": null,
+        "random_state": null,
+        "strategy": "prior"
+      }
+    },
+    "logistic_regression": {
+      "task": "classification",
+      "model": "logistic_regression",
+      "partition": "validation",
+      "configuration": "untuned",
+      "training_rows": 28952,
+      "validation_rows": 6545,
+      "fit_seconds": 0.45208439999987604,
+      "accuracy": 0.9728036669213139,
+      "precision": 0.1,
+      "recall": 0.0058823529411764705,
+      "f1": 0.011111111111111112,
+      "roc_auc": 0.7042851211072665,
+      "average_precision": 0.06665022430002741,
+      "confusion_matrix": [
+        [
+          6366,
+          9
+        ],
+        [
+          169,
+          1
+        ]
+      ],
+      "parameters": {
+        "C": 1.0,
+        "class_weight": null,
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 2000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 382,
+        "solver": "lbfgs",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      }
+    }
+  },
+  "clustering": {
+    "model": "kmeans",
+    "configuration": "untuned",
+    "n_clusters": 3,
+    "rows": 79330,
+    "representation_dimensions": 26,
+    "silhouette_sample_size": 2000,
+    "silhouette": 0.21966760664493998,
+    "davies_bouldin": 1.7386462001780945,
+    "inertia": 445210.0457676597,
+    "fit_seconds": 1.1879613000000973,
+    "n_iter": 20,
+    "plot_pca_explained_variance": [
+      0.19471667386195513,
+      0.15049862606821074
+    ]
+  },
+  "validation_cancellation_rate": 0.025974025974025976,
+  "final_test_evaluated": false,
+  "limitations": [
+    "Late cancellation/no-show risk set only, not booking-creation forecasting.",
+    "Source has no booking/customer IDs; independence cannot be fully established.",
+    "Arrival cohorts are an offline temporal evaluation, not rolling production simulation.",
+    "Full-H2 unsupervised outputs never feed supervised models or model selection."
+  ]
+}

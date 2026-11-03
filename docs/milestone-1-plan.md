@@ -1,6 +1,6 @@
 # Milestone 1 implementation plan
 
-This document records planned work, not completed experiments.
+This document records the initial implementation plan. Executed evidence and current decisions are in the progress report, docs/leakage-audit.md, and results/run_summary.json. In particular, source investigation established a day-before-arrival prediction point and a late-cancellation risk set, replacing the initial open choice of prediction point. Remaining final-project experiments are documented in docs/milestone-2-plan.md.
 
 ## Data understanding
 

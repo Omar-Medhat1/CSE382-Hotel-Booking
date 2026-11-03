@@ -1,0 +1,33 @@
+{
+  "source_rows": 79330,
+  "source_columns": 31,
+  "arrival_first": "2015-07-01",
+  "arrival_last": "2017-08-31",
+  "exact_duplicate_rows_after_first": 25902,
+  "unknown_counts": {
+    "Children": 4,
+    "Country": 24
+  },
+  "not_applicable_ids": {
+    "Agent": 8131,
+    "Company": 75641
+  },
+  "structural_flags": {
+    "zero_night_bookings": 331,
+    "zero_guest_bookings": 167,
+    "adults_zero": 390,
+    "negative_count_values": 0
+  },
+  "training_rows": 28952,
+  "training_cancellation_rate": 0.02994611771207516,
+  "training_adr": {
+    "mean": 100.30914030118818,
+    "median": 95.0,
+    "min": 0.0,
+    "max": 365.0,
+    "zero_count": 534,
+    "skewness": 0.6870919693458565
+  },
+  "duplicate_policy": "Retain repeated records: source lacks booking IDs; repeats may be real group bookings. Chronological cohorts preserve same-date predictor groups.",
+  "eda_scope": "Source-wide schema, missingness and structural flags; target distributions and associations use training rows only."
+}
