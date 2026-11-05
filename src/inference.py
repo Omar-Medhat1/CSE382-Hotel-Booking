@@ -28,6 +28,15 @@ def predict(task, path):
             frame[col] = pd.Series([value], dtype=object)
         else:
             frame[col] = pd.to_numeric(frame[col], errors="raise")
+    for col in ("Adults", "Children", "Babies"):
+        if frame.at[0, col] < 0:
+            raise ValueError(f"{col} cannot be negative.")
+
+    for col in ("Adults", "Children", "Babies"):
+        value = frame.at[0, col]
+        if not pd.isna(value) and not np.isfinite(value):
+            raise ValueError(f"{col} must be finite.")
+
     frame["ArrivalDate"] = pd.to_datetime(dict(year=frame.ArrivalDateYear,
                                              month=frame.ArrivalDateMonth.map(MONTHS),
                                              day=frame.ArrivalDateDayOfMonth), errors="raise")
