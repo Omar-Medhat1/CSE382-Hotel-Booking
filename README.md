@@ -113,7 +113,7 @@ Inputs use the original booking source names. The example is a synthetic active 
 | Name | Student ID | Assigned responsibility |
 | --- | --- | --- |
 | OMAR MEDHAT | 23P0026 | Preprocessing, temporal splits and leakage prevention |
-| AHMED MEDHAT | 230039 | Data quality, cleaning rules, EDA and feature diagnostics |
+| AHMED MEDHAT | 23P0039 | Data quality, cleaning rules, EDA and feature diagnostics |
 | AHMED ADEL | 23P0046 | Regression workflow, error analysis and inference checks |
 | MOHAMED HASSAN | 23P0042 | Classification workflow, imbalance analysis and inference checks |
 | AHMED MOKHTAR | 23P0081 | Clustering workflow, PCA analysis and segment interpretation |
