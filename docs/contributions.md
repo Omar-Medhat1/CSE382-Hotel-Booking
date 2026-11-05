@@ -7,7 +7,7 @@ Status: responsibilities are assigned across six members. Record completed work 
 | Member | Student ID | Assigned area | Evidence to produce |
 | --- | --- | --- | --- |
 | OMAR MEDHAT | 23P0026 | Preprocessing, temporal splits, leakage prevention | Reusable transformations; split/fit-isolation checks; feature and leakage audit |
-| AHMED MEDHAT | 230039 | Data quality, cleaning rules, EDA, feature diagnostics | Data-quality contract; verified EDA outputs and interpretations |
+| AHMED MEDHAT | 23P0039 | Data quality, cleaning rules, EDA, feature diagnostics | Data-quality contract; verified EDA outputs and interpretations |
 | AHMED ADEL | 23P0046 | Complete regression workflow, error analysis, inference checks | Model/reference comparison; residual analysis; saved prediction checks |
 | MOHAMED HASSAN | 23P0042 | Complete classification workflow, imbalance analysis, inference checks | Metrics/curves; rare-positive analysis; probability/decision checks |
 | AHMED MOKHTAR | 23P0081 | Complete clustering workflow, PCA analysis, segment interpretation | Unsupervised representation; metrics/profiles/projection; segment interpretation |
