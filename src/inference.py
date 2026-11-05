@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 
 from src.data.loading import ROOT, MONTHS
+from src.evaluation.metrics import classification_decisions
 from src.features.policy import GROUP_COLUMNS, CATEGORICAL, select
 
 
@@ -39,7 +40,11 @@ def predict(task, path):
     if task == "regression":
         return {"task": task, "model": "untuned Ridge", "predicted_adr": float(model.predict(x)[0]),
                 "scope": "Recorded ADR estimate for an active booking at the prior-day snapshot."}
-    probability = float(model.predict_proba(x)[0, 1])
+    classes = np.asarray(model.classes_)
+    positive_columns = np.flatnonzero(classes == 1)
+    if len(positive_columns) != 1:
+        raise ValueError(f"Classification artifact must contain class 1; found {classes.tolist()}.")
+    probability = float(model.predict_proba(x)[0, positive_columns[0]])
     return {"task": task, "model": "untuned logistic regression", "cancellation_probability": probability,
-            "prediction_at_threshold_0_5": int(probability >= .5),
+            "prediction_at_threshold_0_5": int(classification_decisions([probability])[0]),
             "scope": "Late cancellation/no-show among bookings active at the end of the day before arrival."}

@@ -8,5 +8,8 @@
   },
   "train_only_imputation": "passed",
   "artifact_reload_predictions": "passed",
+  "classification_positive_class": "class 1 at probability column 1",
+  "classification_probability_decision_consistency": "passed",
+  "classification_probability_summary": "passed",
   "final_test_evaluated": false
 }
