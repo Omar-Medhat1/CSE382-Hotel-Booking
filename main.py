@@ -31,7 +31,7 @@ def main():
         print("Milestone 1: data preparation and untuned baselines")
         print("Results:", "available" if (ROOT / "results/run_summary.json").exists() else "run baseline")
         print("Final supervised test evaluation: intentionally unavailable in Milestone 1.")
-        print("Team roster: docs/team.md; other GitHub accounts and contributions are pending.")
+        print("Team roster: docs/team.md; contribution evidence: docs/contributions.md.")
         print("Repository:", config["repository"])
         return 0
 
