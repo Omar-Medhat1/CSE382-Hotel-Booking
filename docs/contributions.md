@@ -1,6 +1,6 @@
 # Work allocation and contribution record
 
-Status: responsibilities are assigned across six members. Record completed work and evidence as each member performs, checks, and improves their component. Individual completion has not yet been verified.
+Status: responsibilities are assigned across six members, and repository contribution evidence is recorded below. Commit evidence does not by itself certify individual technical understanding.
 
 ## Assigned responsibilities
 
@@ -113,5 +113,11 @@ All commands above run from the repository root using the project environment. O
 
 | Date | Member | Actual work completed | Commit or pull request | Verification |
 | --- | --- | --- | --- | --- |
+| 2026-11-03 | OMAR MEDHAT | Implemented project structure, preprocessing, feature/split policy and preliminary leakage audit; coordinated integration. | https://github.com/Omar-Medhat1/CSE382-Hotel-Booking/commit/92cacaf87190a696a6db8499d74a75d2551e2a8b | Baselines, protocol tests, source and artifact verification reproduced during final review. |
+| 2026-11-05 | AHMED MEDHAT | Reviewed source quality, normalization and EDA; recorded findings and corrected the roster ID to 23P0039. | https://github.com/Omar-Medhat1/CSE382-Hotel-Booking/pull/5 | Member note records source checks, EDA and eight tests at the reviewed revision; final source checks reproduced. |
+| 2026-11-05 | AHMED ADEL | Added validation residual analysis, diagnostics script, tables/figure and four diagnostic tests. | https://github.com/Omar-Medhat1/CSE382-Hotel-Booking/pull/3 | Diagnostic tests passed; baseline and saved inference reproduced during final review. |
+| 2026-11-05 | MOHAMED HASSAN | Added rare-positive probability diagnostics, explicit class/decision checks and three classification tests. | https://github.com/Omar-Medhat1/CSE382-Hotel-Booking/commit/6f82b8e4eb8a59461c10dd769f92efc10f1d16ef | Original classification commit preserved in the merge; its checks verified alongside clustering and inference changes. |
+| 2026-11-05 | AHMED MOKHTAR | Added clustering coverage, row-order, reload and profile-count checks; documented segment/PCA interpretation. | https://github.com/Omar-Medhat1/CSE382-Hotel-Booking/pull/6 | Full-H2 clustering reload/coverage and profile-count verification reproduced. |
+| 2026-11-05 | HALA ELTAWEEL | Added guest-count input validation and tests; made runtime verification checks survive Python optimization. | https://github.com/Omar-Medhat1/CSE382-Hotel-Booking/pull/7 | Inference tests and normal/optimized verification checked during final review. |
 
-Completed entries are pending. Every member should also understand the complete workflow and be able to explain its assumptions and results. Commit authorship alone does not document technical understanding.
+Every member should understand the complete workflow and explain its assumptions and results. Commit authorship alone does not document technical understanding.

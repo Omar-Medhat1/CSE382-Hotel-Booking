@@ -22,7 +22,8 @@ from src.classification.baseline import models as classification_models
 from src.clustering.baseline import model as cluster_model
 from src.data.loading import ROOT, CONFIG, load_source
 from src.data.splitting import partition
-from src.evaluation.metrics import regression, classification
+from src.evaluation.metrics import (classification, classification_probability_summary,
+                                    regression)
 from src.features.policy import select, engineering
 from src.regression.baseline import models as regression_models
 
@@ -58,8 +59,12 @@ def run():
                 start = time.perf_counter()
                 estimator.fit(x_train, train[target])
                 elapsed = time.perf_counter() - start
-                prediction = (estimator.predict(x_valid) if task == "regression"
-                              else estimator.predict_proba(x_valid)[:, 1])
+                if task == "regression":
+                    prediction = estimator.predict(x_valid)
+                else:
+                    if estimator.classes_.tolist() != [0, 1]:
+                        raise ValueError(f"Expected classification classes [0, 1], got {estimator.classes_.tolist()}.")
+                    prediction = estimator.predict_proba(x_valid)[:, 1]
                 metrics = scorer(valid[target], prediction)
                 matrix = metrics.pop("confusion_matrix", None)
                 row = {"task": task, "model": name, "partition": "validation", "configuration": "untuned",
@@ -84,6 +89,9 @@ def run():
                         ax.set(xlabel="Observed validation ADR", ylabel="Predicted ADR", title="Untuned Ridge: validation predictions")
                         save(fig, figures / "regression_validation.png")
                     else:
+                        probability_summary = classification_probability_summary(valid[target], prediction)
+                        probability_summary.to_csv(
+                            tables / "classification_validation_probability_summary.csv", index=False)
                         fig, axes = plt.subplots(1, 3, figsize=(12, 3.5))
                         ConfusionMatrixDisplay(np.array(matrix), display_labels=["Not canceled", "Late cancel"]).plot(ax=axes[0], colorbar=False, cmap="Blues")
                         RocCurveDisplay.from_predictions(valid[target], prediction, ax=axes[1], curve_kwargs={"color": COLORS[0]})
@@ -95,6 +103,22 @@ def run():
                         axes[0].tick_params(axis="x", rotation=15)
                         fig.tight_layout()
                         save(fig, figures / "classification_validation.png")
+                        fig, ax = plt.subplots(figsize=(6.4, 4.2))
+                        bins = np.linspace(0, 1, 41)
+                        for label, color, name in ((0, COLORS[0], "Not canceled"),
+                                                   (1, COLORS[1], "Late cancel/no-show")):
+                            ax.hist(prediction[valid[target].to_numpy() == label], bins=bins,
+                                    density=True, histtype="step", linewidth=1.8,
+                                    color=color, label=name)
+                        ax.axvline(.5, color="black", linestyle="--", linewidth=1,
+                                   label="Decision threshold 0.5")
+                        ax.set_yscale("log")
+                        ax.set(xlabel="Predicted probability of class 1",
+                               ylabel="Within-class density (log scale)",
+                               title="Validation probability distributions by true class")
+                        ax.legend(fontsize=8)
+                        fig.tight_layout()
+                        save(fig, figures / "classification_validation_probability_distribution.png")
         # Clustering is a separate full-source descriptive analysis. Its fitted
         # transforms and assignments are never used by the supervised workflows.
         x_cluster = select(frame, "clustering")

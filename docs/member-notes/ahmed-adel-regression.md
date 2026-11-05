@@ -87,3 +87,15 @@ Run these from the project folder in PowerShell after installing the requirement
 ## What I would check next
 
 For Milestone 2, I want to compare Ridge with other regression models using the same split, then tune them properly. I also want to check how to handle zero-rate bookings and negative predictions without making the validation error worse. **I haven't run these experiments yet.**
+
+## Final integration reproduction on 5 November 2026
+
+The integration review reran the unchanged baseline and diagnostics with Python
+3.12.14 and all pinned package versions. The refreshed diagnostic table/figure
+now correspond to the same saved Ridge pipeline as the main validation table:
+MAE 17.92255663, RMSE 24.16744014, R-squared 0.54142613, mean residual
+(actual minus predicted) -8.89112614, and 22 negative predictions. The earlier
+member-run numbers above remain as historical evidence; the exact cause of
+their small numerical difference was not established. Final-test labels were
+not scored. The local integrated candidate passed 13 unit tests, normal and
+optimized verification, and saved regression/classification inference.

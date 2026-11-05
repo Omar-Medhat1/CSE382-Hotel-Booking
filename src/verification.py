@@ -7,6 +7,7 @@ import pandas as pd
 
 from src.data.loading import ROOT, load_source
 from src.data.splitting import partition
+from src.evaluation.metrics import classification_decisions, classification_probability_summary
 from src.features.policy import select, NUMERIC
 
 
@@ -71,7 +72,11 @@ def verify():
         if task == "regression":
             actual = model.predict(inputs)
         else:
-            actual = model.predict_proba(inputs)[:, 1]
+            np.testing.assert_array_equal(model.classes_, [0, 1])
+            probability_matrix = model.predict_proba(inputs)
+            np.testing.assert_allclose(probability_matrix.sum(axis=1), 1.0)
+            actual = probability_matrix[:, 1]
+            np.testing.assert_array_equal(model.predict(inputs), classification_decisions(actual))
 
         # Verify saved model predictions.
         np.testing.assert_allclose(
@@ -104,6 +109,15 @@ def verify():
             encoder.handle_unknown == "ignore",
             "Encoder must ignore unseen categories."
         )
+
+        if task == "classification":
+            valid = frame.loc[labels == "validation"]
+            probabilities = model.predict_proba(select(valid, task))[:, 1]
+            expected_summary = classification_probability_summary(valid.IsCanceled, probabilities)
+            recorded_summary = pd.read_csv(
+                ROOT / "results/tables/classification_validation_probability_summary.csv")
+            pd.testing.assert_frame_equal(expected_summary, recorded_summary,
+                                          check_exact=False, rtol=1e-12, atol=1e-12)
 
     # Verify chronological label cutoffs.
     require(
@@ -193,6 +207,9 @@ def verify():
         "train_only_imputation": "passed",
         "artifact_reload_predictions": "passed",
         "clustering_reload_and_coverage": "passed",
+        "classification_positive_class": "class 1 at probability column 1",
+        "classification_probability_decision_consistency": "passed",
+        "classification_probability_summary": "passed",
         "final_test_evaluated": False
     }
 

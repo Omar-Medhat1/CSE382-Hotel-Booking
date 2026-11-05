@@ -30,3 +30,10 @@ The generated tables and figures were checked. Source-wide structural checks are
 ## Limitations and coordination
 
 This review validates the current verified source mirror and current baseline outputs. It does not establish that another mirror, altered CSV, or later feature-policy change is valid. Any change to source normalization or missing-value meaning must be coordinated with Omar Medhat so preprocessing semantics remain consistent. The final GitHub contribution record must be added only after this note and any associated changes are committed from Ahmed Medhat's own account.
+
+## Integration status on 5 November 2026
+
+This contribution was published through ahmedmedhat556 and merged in PR #5.
+The final contribution log links the actual pull request. The confirmed student
+ID is 23P0039. Fresh source validation and the unchanged baseline reproduction
+passed during the final integration review.
