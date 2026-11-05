@@ -1,10 +1,9 @@
 # CSE382 - City Hotel Booking Demand
-# hello i am mohammed hassan
 Repository: https://github.com/Omar-Medhat1/CSE382-Hotel-Booking
 
 ## Current status
 
-Milestone 1 technical work is implemented and executed: source verification, EDA, chronological holdouts, leakage-aware feature policies, preprocessing pipelines, untuned supervised/clustering baselines, and measured results. A separate Milestone 1 progress report is omitted following the TA's updated submission guidance. **All six team names and student IDs are recorded. Other members' GitHub accounts and actual contributions remain pending; complete those details before submitting.**
+Milestone 1 technical work is implemented and executed: source verification, EDA, chronological holdouts, leakage-aware feature policies, preprocessing pipelines, untuned supervised/clustering baselines, and measured results. A separate Milestone 1 progress report is omitted following the TA's updated submission guidance. **All six names, student IDs, GitHub usernames, and contribution links are recorded in docs/team.md, docs/team.json, and docs/contributions.md.**
 
 Supervised predictions apply to bookings active at the **end of the day before scheduled arrival**, reflecting the source paper's snapshot timing. The cancellation task predicts late cancellation/no-show in that risk set; it is not a booking-creation forecast. Final supervised test evaluation remains reserved for Milestone 2.
 
@@ -90,6 +89,10 @@ Numeric imputation/scaling and categorical encoding are fitted on training rows 
 
 - [Complete preliminary leakage audit: all 31 columns](docs/leakage-audit.md)
 - [Milestone 2 plan](docs/milestone-2-plan.md)
+- [Contribution evidence](docs/contributions.md)
+- [Regression error analysis](docs/member-notes/ahmed-adel-regression.md); reproduce with `python -m scripts.regression_diagnostics` after `baseline`.
+- [Classification imbalance review](docs/member-notes/mohamed-classification.md)
+- [Data quality review](docs/member-notes/ahmed-medhat-data-quality.md) and [clustering interpretation](docs/member-notes/ahmed-mokhtar-clustering.md)
 - `results/tables/`: schema, training ranges/cardinality/outlier summaries, validation metrics, cluster profiles, and compressed partition/cluster assignment CSVs.
 - `results/figures/`: training EDA, validation prediction/ROC/PR/confusion plots, and cluster visualization.
 - `results/run_summary.json`: exact measured results, model parameters, source fingerprint, versions, and fit times.
@@ -119,11 +122,11 @@ Inputs use the original booking source names. The example is a synthetic active 
 | AHMED MOKHTAR | 23P0081 | Clustering workflow, PCA analysis and segment interpretation |
 | HALA ELTAWEEL | 23P0232 | CLI integration, system checks and reproducible submission |
 
-The confirmed team has six members; see `docs/team.md` and `docs/team.json`. [The work allocation](docs/contributions.md) gives each member a complete work package with technical ownership, analysis, and verification. Hala coordinates CLI/system integration, checks setup/run instructions, and verifies the submission package. Omar retains repository-owner access administration. Roles are assigned; completed contributions and other members' GitHub usernames remain pending. Each member must contribute through their own GitHub account and record actual work and verification evidence.
+The confirmed team has six members; see `docs/team.md` and `docs/team.json`. [The work allocation](docs/contributions.md) gives each member a complete work package with technical ownership, analysis, and verification. Hala coordinates CLI/system integration, checks setup/run instructions, and verifies the submission package. Omar retains repository-owner access administration. Roles and observed commit/PR evidence are recorded in the contribution log. Each member remains responsible for understanding and explaining the complete workflow.
 
 ## Submission
 
-Complete the pending GitHub account/contribution details and commit the final version before submitting. The package includes source code, configuration, README, dependencies, measured result tables/figures, and supporting audit/team notes. The separate Milestone 1 report is omitted under the TA's updated guidance. The package also excludes the downloaded source CSV, trained models/fitted pipelines, virtual environments, secrets, and Git internals; the data and artifacts can be regenerated with the exact commands above.
+Submit a ZIP from the final clean committed version after integrating and checking the member contributions. The package includes source code, configuration, README, dependencies, measured result tables/figures, and supporting audit/team notes. The separate Milestone 1 report is omitted under the TA's updated guidance. The package also excludes the downloaded source CSV, trained models/fitted pipelines, virtual environments, secrets, and Git internals; the data and artifacts can be regenerated with the exact commands above.
 
 From a clean committed checkout, create the ZIP:
 
@@ -135,4 +138,4 @@ The packager fills the submitted commit SHA in the archive README and adds SUBMI
 
 Submitted commit SHA: __SUBMITTED_COMMIT_SHA__
 
-The placeholder is automatically replaced in the packaged README. The roster is confirmed; this remains a draft until other GitHub accounts and actual contribution records are complete.
+The placeholder is automatically replaced in the packaged README. The archive metadata identifies its exact source commit.

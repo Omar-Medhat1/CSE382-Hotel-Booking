@@ -52,7 +52,7 @@ def main():
         "repository": "https://github.com/Omar-Medhat1/CSE382-Hotel-Booking",
         "submitted_commit_sha": commit,
         "created_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
-        "status": "technical_draft_github_and_contributions_pending",
+        "status": "milestone_1_committed_snapshot",
         "team_size": team["team_size"],
         "team_members": team["members"],
         "readme_metadata_substitution": "The archive README replaces its commit placeholder with the source snapshot SHA; the checkout is unchanged.",
